@@ -1,0 +1,112 @@
+html, body { 
+    margin: 0; 
+    overflow: hidden; 
+    width: 100%; /* Make html and body take full width */
+    height: 100%; /* Make html and body take full height */
+    background-color: #000; 
+    font-family: 'Courier New', Courier, monospace; 
+}
+canvas { 
+    display: block; 
+    width: 100%; /* Make canvas take full width of its parent (body) */
+    height: 100%; /* Make canvas take full height of its parent (body) */
+}
+#ui {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ff0000;
+    text-shadow: 2px 2px #000;
+    pointer-events: none; /* Allows clicks to pass through to canvas if not on UI elements */
+    z-index: 1000; /* Ensure UI is above canvas */
+}
+#instructions { font-size: 18px; margin-bottom: 10px; }
+#status { font-size: 24px; font-weight: bold; }
+#timer { font-size: 24px; font-weight: bold; margin-top: 10px;}
+
+/* Setup Screen */
+#setup-screen {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #000;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    z-index: 2000;
+}
+#setup-screen button {
+    padding: 15px 30px; margin: 10px;
+    font-size: 20px; background: #222; color: red;
+    border: 2px solid red; cursor: pointer;
+}
+#setup-screen h1 { color: white; margin-bottom: 20px; }
+
+/* Joystick */
+#joystick-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 120px;
+    height: 120px;
+    pointer-events: auto; /* Allow interaction */
+    touch-action: none; /* Prevent browser scrolling */
+    z-index: 1000; /* Ensure joystick is above canvas */
+}
+#joystick-base {
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    position: relative;
+}
+#joystick-stick {
+    width: 50px; height: 50px;
+    background: rgba(255, 0, 0, 0.6);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Settings Modal */
+#settings-modal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border: 2px solid red;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    z-index: 3000; /* Above everything else */
+}
+#settings-modal h2 { margin-top: 0; color: red; }
+#settings-modal label { display: block; margin-bottom: 10px; font-size: 18px; }
+#settings-modal input[type="range"] {
+    width: 80%;
+    margin-bottom: 20px;
+}
+#settings-modal button {
+    padding: 10px 20px;
+    background: #222;
+    color: red;
+    border: 1px solid red;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Settings Button */
+#settings-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it's above canvas */
+}
+#open-settings-button {
+    padding: 10px 20px;
+    background: #222;
+    color: red;
+    border: 1px solid red;
+    cursor: pointer;
+    font-size: 16px;
+}

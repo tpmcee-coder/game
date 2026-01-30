@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>متاهة الرعب</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="setup-screen">
+        <h1>اختر جهازك / Choose Device</h1>
+        <button id="pc-button">كمبيوتر (Computer)</button>
+        <button id="mobile-button">هاتف (Phone)</button>
+    </div>
+
+    <!-- Settings button always visible -->
+    <div id="settings-button-container">
+        <button id="open-settings-button">إعدادات</button>
+    </div>
+
+    <div id="settings-modal" style="display: none;">
+        <h2>إعدادات / Settings</h2>
+        <label for="brightness-slider">السطوع / Brightness:</label>
+        <input type="range" id="brightness-slider" min="0.1" max="2.0" step="0.1" value="1.0">
+        <button id="close-settings-button">إغلاق</button>
+    </div>
+
+    <div id="ui" style="display: none;">
+        <div id="instructions">ابحث عن المفتاح الأحمر للهروب...<br>استخدم WASD للحركة والماوس للنظر</div>
+        <div id="status">المفتاح: لم يتم العثور عليه</div>
+        <div id="timer">الوقت المتبقي: 05:00</div>
+    </div>
+    <div id="joystick-container" style="display: none;">
+        <div id="joystick-base">
+            <div id="joystick-stick"></div>
+        </div>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <script src="game.js"></script>
+</body>
+</html>
